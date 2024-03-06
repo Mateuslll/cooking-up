@@ -1,40 +1,36 @@
 
 <script setup lang="ts">
 /*Composition Api */
-    [
-      {
-        "nome": "Laticínios e Ovos",
-        "ingredientes": ["Ovos", "Queijo", "Leite", "Manteiga", "Creme de Leite", "Iogurte", "Leite Condensado", "Sorvete"],
-        "rotulo": "laticinios_e_ovos"
-      },
-      {
-        "nome": "Farinhas e Fermentos",
-        "ingredientes": ["Farinha de trigo", "Polvilho", "Farinha de rosca", "Canjica", "Farinha de mandioca", "Fubá", "Linhaça", "Fermento químico"],
-        "rotulo": "farinhas_e_fermentos"
-      }
-    ]
+  import SelecionarIngredientes from './SelecionarIngredientes.vue';
   const listaIngredientes: string[] = ['Alho', 'Manteiga', 'Orégano','Pão','Tomilho', 'Limão']
- </script>
+
+</script>
 
  
 <template>
-    <main class="conteudo-principal">
-        <section>
+  <main class="conteudo-principal">
+      <section>
             <span class="subtitulo-lg sua-lista-texto">
                 Sua lista:
             </span>
+
             <ul v-if="listaIngredientes.length != 0" class="ingredientes-sua-lista">
                   <li v-for="ingrediente in listaIngredientes" class="ingrediente" v-bind:key="ingrediente">
                     {{ ingrediente }}
                 </li>
               </ul>
-              <p v-else class="paragrafo lista-vazia">
+
+            <p v-else class="paragrafo lista-vazia">
                 <img src="../assets/images/icones/lista-vazia.svg" alt="Ícone de pesquisa">
                 Sua lista está vazia, selecione os ingredientes para inciar
-              </p>   
-        </section>
-    </main>
-  </template>
+            </p>   
+      </section>
+      <SelecionarIngredientes>
+        
+      </SelecionarIngredientes>
+      
+  </main>
+</template>
 
 
 <style scoped>
