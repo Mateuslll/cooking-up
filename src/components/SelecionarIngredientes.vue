@@ -1,10 +1,15 @@
 <script lang="ts">
 import { obterCategorias } from '@/http/index';
+import type ICategoria from '@/interfaces/ICategoria';
     export default {
         data(){
             return{
-                categorias: obterCategorias()
+                categorias:[] as ICategoria []
             }
+        },
+        //metodo de ciclo de vida executado depois que o data estive definido
+        async created(){
+            this.categorias = await obterCategorias();
         }
     }
 </script>
